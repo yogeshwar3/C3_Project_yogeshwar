@@ -5,6 +5,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,6 +29,7 @@ class RestaurantTest {
         restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Vegetable Biriyani", 200);
         restaurant_opening_time = restaurant.openingTime;
         restaurant_closing_time = restaurant.closingTime;
         currentTime = LocalTime.now();
@@ -94,6 +97,19 @@ class RestaurantTest {
 
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
+    }
+
+    @Test
+    public void calculate_cost_should_throw_exception_when_item_does_not_exist() {
+        String [] stringItems = {"Sweet corn soup","Fried Rice"}; // "Fried Rice" is not available.
+        assertThrows(itemNotFoundException.class,
+                ()->restaurant.calculate_cost(stringItems));
+    }
+
+    @Test
+    public void calculate_cost_should_return_correct_value_for_selected_items() throws itemNotFoundException {
+        String [] stringItems = {"Sweet corn soup", "Vegetable lasagne"}; // both items are available.
+        assertEquals(119+269, restaurant.calculate_cost(stringItems));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

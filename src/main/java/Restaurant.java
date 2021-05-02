@@ -63,11 +63,27 @@ public class Restaurant {
                 +"Opening time:"+ openingTime +"\n"
                 +"Closing time:"+ closingTime +"\n"
                 +"Menu:"+"\n"+getMenu());
-
     }
 
     public String getName() {
         return name;
     }
+
+//    public Item getMenuItem(String itemName) throws itemNotFoundException {
+//        Item itemToBeSearched = findItemByName(itemName);
+//        if (itemToBeSearched == null)
+//            throw new itemNotFoundException(itemName);
+//        return itemToBeSearched;
+//    }
+//
+//    public int calculate_cost(String[] strings) throws itemNotFoundException {
+//        int totalCost = 0;
+//        Item itemFound;
+//        for (int i=0; i < strings.length; i++){
+//            itemFound = getMenuItem(strings[i]);
+//            totalCost = totalCost + itemFound.getPrice();
+//        }
+//        return totalCost;
+//    }
 
 }
