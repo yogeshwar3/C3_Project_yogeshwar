@@ -22,7 +22,6 @@ class RestaurantServiceTest {
         restaurant.addToMenu("Vegetable lasagne", 269);
         service.addRestaurant("Pumpkin Tales","Chennai",LocalTime.parse("12:00:00"),LocalTime.parse("23:00:00"));
         service.addRestaurant("Saravana Bhavan","Chennai",LocalTime.parse("08:00:00"),LocalTime.parse("21:00:00"));
-
     }
 
     //>>>>>>>>>>>>>>>>>>>>>>SEARCHING<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

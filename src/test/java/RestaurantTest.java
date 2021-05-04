@@ -26,7 +26,7 @@ class RestaurantTest {
     public void beforeEachTestCaseExecution(){
         openingTime = LocalTime.parse("10:30:00");
         closingTime = LocalTime.parse("22:00:00");
-        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant = new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
         restaurant.addToMenu("Vegetable lasagne", 269);
         restaurant.addToMenu("Vegetable Biriyani", 200);
@@ -41,19 +41,18 @@ class RestaurantTest {
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
-        if(currentTime.isAfter(restaurant_opening_time) && currentTime.isBefore(restaurant_closing_time)){
+        if(currentTime.isAfter(restaurant_opening_time) && currentTime.isBefore(restaurant_closing_time)) {
             assertTrue(restaurant.isRestaurantOpen());
-        } else {
-            assertFalse(restaurant.isRestaurantOpen());
         }
+//        else {
+//            assertFalse(restaurant.isRestaurantOpen());
+//        }
     }
 
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
-        if(currentTime.isAfter(restaurant_opening_time) && currentTime.isBefore(restaurant_closing_time)){
-            assertTrue(restaurant.isRestaurantOpen());
-        } else {
+        if(currentTime.isBefore(restaurant_opening_time) || currentTime.isAfter(restaurant_closing_time)){
             assertFalse(restaurant.isRestaurantOpen());
         }
     }
